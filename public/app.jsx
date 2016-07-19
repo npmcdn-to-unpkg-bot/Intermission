@@ -75,7 +75,7 @@ const UserList = React.createClass({
     </ul>
     <footer className="flex flex-row flex-center">
     <a href="#" className="logout button button-primary" onClick={this.logout}>
-    Sign Out
+    Sign out
     </a>
     </footer>
     </aside>;
@@ -93,7 +93,7 @@ const MessageList = React.createClass({
     <p className="message-header">
     <span className="username font-600">{sender.email} </span>
     <span className="sent-date font-300">
-    {moment(message.createdAt).format('MMM Do, hh:mm:ss')}
+    {moment(message.createdAt).format('MMM DD, HH:mm:ss')}
     </span>
     </p>
     <p className="message-content font-300">
@@ -164,7 +164,7 @@ app.authenticate().then(() => {
     <header className="title-bar flex flex-row flex-center">
     <div className="title-wrapper block center-element">
     <img className="logo" src="/images/intermission_logo.jpg"
-    alt="Feathers Logo" />
+    alt="Intermission logo" />
     {/* <span className="title">Intermission</span> */}
     </div>
     </header>
