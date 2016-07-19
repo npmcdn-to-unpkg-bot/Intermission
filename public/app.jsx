@@ -59,7 +59,7 @@ const UserList = React.createClass({
     return <aside className="sidebar col col-3 flex flex-column flex-space-between">
     <header className="flex flex-row flex-center">
     <h4 className="font-300 text-center">
-    <span className="font-600 online-count">{users.length}</span> users
+    <span className="font-300 online-count">{users.length}</span>reviewers
     </h4>
     </header>
 
@@ -93,7 +93,7 @@ const MessageList = React.createClass({
     <p className="message-header">
     <span className="username font-600">{sender.email} </span>
     <span className="sent-date font-300">
-    {moment(message.createdAt).format('MMM DD, HH:mm:ss')}
+    {moment(message.createdAt).fromNow()}
     </span>
     </p>
     <p className="message-content font-300">
@@ -151,6 +151,7 @@ const ChatApp = React.createClass({
   render() {
     return <div className="flex flex-row flex-1 clear">
     <UserList users={this.state.users} />
+    {/* add MovieList here */}
     <div className="flex flex-column col col-9">
     <MessageList users={this.state.users} messages={this.state.messages} />
     <ComposeMessage />
