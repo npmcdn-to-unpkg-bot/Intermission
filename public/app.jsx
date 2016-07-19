@@ -117,9 +117,6 @@ const MessageList = React.createClass({
     <p className="message-content font-300">
     {message.text}
     </p>
-    <p>
-    {message.movieTitle}
-    </p>
     </div>
     </div>;
   },
