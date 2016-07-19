@@ -91,7 +91,7 @@ const MessageList = React.createClass({
     <img src={sender.avatar || PLACEHOLDER} alt={sender.email} className="avatar" />
     <div className="message-wrapper">
     <p className="message-header">
-    <span className="username font-600">{sender.email}</span>
+    <span className="username font-600">{sender.email} </span>
     <span className="sent-date font-300">
     {moment(message.createdAt).format('MMM Do, hh:mm:ss')}
     </span>
@@ -163,9 +163,9 @@ app.authenticate().then(() => {
   ReactDOM.render(<div id="app" className="flex flex-column">
     <header className="title-bar flex flex-row flex-center">
     <div className="title-wrapper block center-element">
-    <img className="logo" src="http://feathersjs.com/img/feathers-logo-wide.png"
+    <img className="logo" src="/images/intermission_logo.jpg"
     alt="Feathers Logo" />
-    <span className="title">Chat</span>
+    {/* <span className="title">Intermission</span> */}
     </div>
     </header>
 
