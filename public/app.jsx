@@ -105,7 +105,7 @@ const MessageList = React.createClass({
 
   render() {
     return <main className="chat flex flex-column flex-1 clear">
-    {this.props.messages.map(this.renderMessage)}
+    {this.props.messages.map(this.renderMessage).reverse()}
     </main>;
   }
 });
