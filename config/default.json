@@ -5,7 +5,7 @@
   "public": "../public/",
   "auth": {
     "token": {
-      "secret": "<your secret>"
+      "secret": "SyUd6KpJs0UV2kim6wkbcWbqe4oex+WoHh1kFP9nrP+TtYIBbUNV7LN0pZD0jFigpeelPyvaA014B+oa5cM5Nw=="
     },
     "local": {},
     "successRedirect": "/chat.html"
