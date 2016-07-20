@@ -85,7 +85,7 @@ const UserList = React.createClass({
 const MovieList = React.createClass({
   render() {
     const movies = this.props.movies;
-console.log(movies)
+    console.log(movies)
     return <aside className="sidebar col col-3 flex flex-column flex-space-between">
     <header className="flex flex-row flex-center">
     <h4 className="font-300 text-center">
@@ -100,7 +100,7 @@ console.log(movies)
     <span className="absolute username">{movie.title}</span>
     </a>
     </li>
-    )}
+    ).reverse()}
     </ul>
     <footer className="flex flex-row flex-center">
     <a href="#" className="logout button button-primary" onClick={this.logout}>
