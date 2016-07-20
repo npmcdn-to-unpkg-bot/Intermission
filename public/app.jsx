@@ -30,10 +30,16 @@ const ComposeMessage = React.createClass({
   sendMessage(ev) {
     // Get the messages service
     const messageService = app.service('messages');
+    const movieService = app.service('movies');
     // Create a new message with the text from the input field
     messageService.create({
       text: this.state.text
     }).then(() => this.setState({ text: '' }));
+
+    const firstWords = this.state.text.split(": ")
+    movieService.create({
+      title: firstWords[0]
+    }).then(() => this.setState({ title: '' }));
 
     ev.preventDefault();
   },
@@ -85,7 +91,6 @@ const UserList = React.createClass({
 const MovieList = React.createClass({
   render() {
     const movies = this.props.movies;
-    console.log(movies)
     return <aside className="sidebar col col-3 flex flex-column flex-space-between">
     <header className="flex flex-row flex-center">
     <h4 className="font-300 text-center">
