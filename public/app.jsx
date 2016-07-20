@@ -82,23 +82,34 @@ const UserList = React.createClass({
   }
 });
 
-//const MovieList = React.createClass({
-  //renderMovie(message) {
-    //return <div className="message flex flex-column flex-1">
-    //<div className="message-wrapper">
-    //<p className="message-content font-300">
-    //{message.movieTitle}
-    //</p>
-    //</div>
-    //</div>;
-  //},
+const MovieList = React.createClass({
+  render() {
+    const movies = this.props.movies;
+console.log(movies)
+    return <aside className="sidebar col col-3 flex flex-column flex-space-between">
+    <header className="flex flex-row flex-center">
+    <h4 className="font-300 text-center">
+    <span className="font-300 online-count">{movies.length}</span>movies
+    </h4>
+    </header>
 
-  //render() {
-    //return <main className="chat flex flex-column flex-1 clear">
-    //{this.props.messages.map(this.renderMovie).reverse()}
-    //</main>;
-  //}
-//});
+    <ul className="flex flex-column flex-1 list-unstyled user-list">
+    {movies.map(movie =>
+      <li>
+    <a className="block relative" href="#">
+    <span className="absolute username">{movie.title}</span>
+    </a>
+    </li>
+    )}
+    </ul>
+    <footer className="flex flex-row flex-center">
+    <a href="#" className="logout button button-primary" onClick={this.logout}>
+    Sign out
+    </a>
+    </footer>
+    </aside>;
+  }
+});
 
 const MessageList = React.createClass({
   // Render a single message
@@ -132,7 +143,8 @@ const ChatApp = React.createClass({
   getInitialState() {
     return {
       users: [],
-      messages: []
+      messages: [],
+      movies: []
     };
   },
 
@@ -145,12 +157,18 @@ const ChatApp = React.createClass({
   componentDidMount() {
     const userService = app.service('users');
     const messageService = app.service('messages');
+    const movieService = app.service('movies');
 
     // Find all users initially
     userService.find().then(page => this.setState({ users: page.data }));
     // Listen to new users so we can show them in real-time
     userService.on('created', user => this.setState({
       users: this.state.users.concat(user)
+    }));
+
+    movieService.find().then(page => this.setState({ movies: page.data }));
+    movieService.on('created', movie => this.setState({
+      movies: this.state.movies.concat(movie)
     }));
 
     // Find the last 10 messages
@@ -168,8 +186,8 @@ const ChatApp = React.createClass({
 
   render() {
     return <div className="flex flex-row flex-1 clear">
-    <UserList users={this.state.users} />
-    {/* <MovieList messages={this.state.messages} /> */}
+    {/* <UserList users={this.state.users} /> */}
+    <MovieList movies={this.state.movies} />
     <div className="flex flex-column col col-9">
     <MessageList users={this.state.users} messages={this.state.messages} />
     <ComposeMessage />
