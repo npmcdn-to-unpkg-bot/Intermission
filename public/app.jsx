@@ -82,23 +82,23 @@ const UserList = React.createClass({
   }
 });
 
-const MovieList = React.createClass({
-  renderMovie(message) {
-    return <div className="message flex flex-column flex-1">
-    <div className="message-wrapper">
-    <p className="message-content font-300">
-    {message.movieTitle}
-    </p>
-    </div>
-    </div>;
-  },
+//const MovieList = React.createClass({
+  //renderMovie(message) {
+    //return <div className="message flex flex-column flex-1">
+    //<div className="message-wrapper">
+    //<p className="message-content font-300">
+    //{message.movieTitle}
+    //</p>
+    //</div>
+    //</div>;
+  //},
 
-  render() {
-    return <main className="chat flex flex-column flex-1 clear">
-    {this.props.messages.map(this.renderMovie).reverse()}
-    </main>;
-  }
-});
+  //render() {
+    //return <main className="chat flex flex-column flex-1 clear">
+    //{this.props.messages.map(this.renderMovie).reverse()}
+    //</main>;
+  //}
+//});
 
 const MessageList = React.createClass({
   // Render a single message
@@ -168,8 +168,8 @@ const ChatApp = React.createClass({
 
   render() {
     return <div className="flex flex-row flex-1 clear">
-    {/* <UserList users={this.state.users} /> */}
-    <MovieList messages={this.state.messages} />
+    <UserList users={this.state.users} />
+    {/* <MovieList messages={this.state.messages} /> */}
     <div className="flex flex-column col col-9">
     <MessageList users={this.state.users} messages={this.state.messages} />
     <ComposeMessage />
