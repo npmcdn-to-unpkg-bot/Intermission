@@ -9,7 +9,7 @@ module.exports = function(){
   const app = this;
 
   const db = new NeDB({
-    filename: path.join(app.get('nedb'), 'messages.db'),
+    filename: path.join(app.get('nedb'), 'movies.db'),
     autoload: true
   });
 
@@ -22,14 +22,14 @@ module.exports = function(){
   };
 
   // Initialize our service with any options it requires
-  app.use('/messages', service(options));
+  app.use('/movies', service(options));
 
   // Get our initialize service to that we can bind hooks
-  const messageService = app.service('/messages');
+  const movieService = app.service('/movies');
 
   // Set up our before hooks
-  messageService.before(hooks.before);
+  movieService.before(hooks.before);
 
   // Set up our after hooks
-  messageService.after(hooks.after);
+  movieService.after(hooks.after);
 };
