@@ -16,11 +16,14 @@ module.exports = function(options) {
     // Do some basic HTML escaping
       .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 
+    const firstWords = text.split(": ")
+
     // Override the original data
     hook.data = {
       text,
       // Set the user id
       userId: user._id,
+      movieTitle: firstWords[0],
       // Add the current time via `getTime`
       createdAt: new Date().getTime()
     };
