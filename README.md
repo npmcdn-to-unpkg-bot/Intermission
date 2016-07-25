@@ -2,6 +2,8 @@
 
 > Half time reviews for movies in theaters
 
+![screenshot](/public/intermission_preview.png?raw=true)
+
 ## About
 
 This project uses [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
